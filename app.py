@@ -1,6 +1,7 @@
 import pandas
 import matplotlib.pyplot as plt
 
+
 #reading csv
 df_first_emotions_csv = pandas.read_csv('./dataset/goemotions_1.csv')
 
@@ -16,6 +17,7 @@ emotion_columns = [
     'excitement', 'fear', 'gratitude', 'grief', 'joy', 'love', 'nervousness', 'optimism',
     'pride', 'realization', 'relief', 'remorse', 'sadness', 'surprise', 'neutral'
 ]
+
 emotion_counts = (df_first_emotions_csv[emotion_columns] == True).sum()
 
 # Plot the bar chart
