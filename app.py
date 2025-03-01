@@ -26,10 +26,8 @@ plt.xlabel('Emotion')
 plt.ylabel('Count (Occurrences of Emotion = 1)')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
-
 # Show the plot
 plt.show()
-
 
 regex_pattern = r"[!?]|\.\.\." 
 emotion_punctuation = df_first_emotions_csv[df_first_emotions_csv['text'].str.contains(regex_pattern, regex=True)].sum()
@@ -40,6 +38,22 @@ plt.xlabel('Emotion')
 plt.ylabel('Count')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
+
+# Show the plot
+plt.show()
+
+#Comparing emotion in text with punctuation x general
+plt.figure(figsize=(12, 6))
+emotion_counts.plot(kind='bar', width=0.4, position=1, color='skyblue', label='All Texts')
+emotion_punctuation.loc[emotion_columns].plot(kind='bar', width=0.4, position=0, color='salmon', label='Texts with Punctuation')
+plt.xlabel("Emotions")
+plt.ylabel("Count")
+plt.title("Comparison of Emotion Distribution in All Texts vs Texts with Punctuation")
+# Rotate x-axis labels for better readability
+plt.xticks(rotation=45)
+
+# Add legend
+plt.legend()
 
 # Show the plot
 plt.show()
