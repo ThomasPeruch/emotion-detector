@@ -29,3 +29,17 @@ plt.tight_layout()
 
 # Show the plot
 plt.show()
+
+
+regex_pattern = r"[!?]|\.\.\." 
+emotion_punctuation = df_first_emotions_csv[df_first_emotions_csv['text'].str.contains(regex_pattern, regex=True)].sum()
+plt.figure(figsize=(10,6))
+emotion_punctuation.loc[emotion_columns].plot(kind='bar', color='skyblue')
+plt.title('Emotion Distribution in Text With Punctuation ("?","!","...")')
+plt.xlabel('Emotion')
+plt.ylabel('Count')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+
+# Show the plot
+plt.show()
